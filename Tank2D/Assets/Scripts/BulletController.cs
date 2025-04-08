@@ -28,9 +28,9 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.GetComponent<Enemy>() != null)
+        if(other.GetComponent<EnemyController>() != null)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
+            EnemyController enemy = other.GetComponent<EnemyController>();
             enemy.TakeDamage(_damage);
         }
         Destroy(gameObject);
