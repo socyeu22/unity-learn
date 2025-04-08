@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8250c2b09043c498fa654578775232de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
+  moveSpeed: 4
   _timeLife: 10000
   _damage: 1
   _smokePre: {fileID: 9031412823137514503, guid: 1ee99a03cb8b74515aa024997d93f380, type: 3}

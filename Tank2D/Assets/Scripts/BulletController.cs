@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MoveController
 {
-    [SerializeField] private float _speed;
     [SerializeField] private float _timeLife;
     [SerializeField] private int _damage;
     [SerializeField] private GameObject _smokePre;
@@ -10,7 +9,7 @@ public class BulletController : MonoBehaviour
 
 
     private void Update() {
-        BulletMove();
+        base.Move(transform.up);
         if(_timer >= _timeLife)
         {
             Destroy(gameObject);
@@ -22,17 +21,14 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    private void BulletMove()
-    {
-        transform.position += transform.up * _speed * Time.deltaTime;
-    }
-
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.GetComponent<Enemy>() != null)
-        {
-            Enemy enemy = other.GetComponent<Enemy>();
-            enemy.TakeDamage(_damage);
-        }
+
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        enemy?.TakeDamage(_damage);
+
+        PlayerController player = other.GetComponent<PlayerController>();
+        player?.TakeDamage(_damage);
+
         Destroy(gameObject);
         Instantiate(_smokePre, transform.position, Quaternion.identity);
 
