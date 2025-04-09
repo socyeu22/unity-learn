@@ -8,24 +8,28 @@ public class TankController : MoveController
     [SerializeField] protected GameObject bulletPre;
     [SerializeField] protected float shotCooldown;
     [SerializeField] protected int health;
-    protected float timer;
+
 
 
     protected virtual void Shoot()
     {
         Instantiate(bulletPre, gunPoint.transform.position, gunPoint.transform.rotation);
-        timer = 0;
     }
 
-    protected virtual void GunRotate(Vector3 shotDirection)
+    protected virtual void GunRotate(Vector3 gunDirection)
     {
-        gun.up = shotDirection;
-
+        gun.up = gunDirection;
     }
 
     protected virtual void BodyRotate(Vector3 direction)
     {
         if(direction != Vector3.zero)
             tankBody.transform.up = direction;
+    }
+    public virtual void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+            Destroy(gameObject);
     }
 }

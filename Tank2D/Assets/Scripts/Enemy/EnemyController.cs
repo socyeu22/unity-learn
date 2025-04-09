@@ -3,15 +3,18 @@ using UnityEngine;
 public class EnemyController : TankController
 {
     [SerializeField] private Transform _player;
-
+    private float timer;
 
     private void Update() 
     {
-        Vector3 direction = (_player.transform.position - transform.position).normalized;
-        Move(direction);
-        GunRotate(direction);
-        BodyRotate(direction);
-        Shoot();
+        if(_player != null)
+        {
+            Vector3 direction = (_player.transform.position - transform.position).normalized;
+            Move(direction);
+            GunRotate(direction);
+            BodyRotate(direction);
+            Shoot();
+        }
     }
 
 
@@ -20,16 +23,10 @@ public class EnemyController : TankController
         if (timer >= shotCooldown)
         {
             base.Shoot();
+            timer = 0;
         }
         else
             timer += Time.deltaTime;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if(health <= 0)
-            Destroy(gameObject);
     }
 
 }

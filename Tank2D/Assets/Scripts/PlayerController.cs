@@ -26,11 +26,10 @@ public class PlayerController : TankController
 
     protected override void Shoot()
     {
-        if(Input.GetMouseButtonDown(0) && timer >= shotCooldown)
+        if(Input.GetMouseButtonDown(0))
         {
             base.Shoot();
         }
-        timer += Time.deltaTime;
     }
 
 }

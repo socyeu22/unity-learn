@@ -336,11 +336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce33a0008c564a29bb3771ec388ab9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _tankBody: {fileID: 0}
-  _gun: {fileID: 0}
-  _gunPoint: {fileID: 0}
-  _bulletPre: {fileID: 0}
+  moveSpeed: 0
+  tankBody: {fileID: 0}
+  gun: {fileID: 0}
+  gunPoint: {fileID: 0}
+  bulletPre: {fileID: 0}
+  shotCooldown: 0
+  health: 0
 --- !u!1 &372990558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,11 +1084,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce33a0008c564a29bb3771ec388ab9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 15
-  _tankBody: {fileID: 1317339501}
-  _gun: {fileID: 1620553128}
-  _gunPoint: {fileID: 1223819982}
-  _bulletPre: {fileID: 698131094595328097, guid: 4d6a5c323f4154cd19ca83ec7a9847b8, type: 3}
+  moveSpeed: 5
+  tankBody: {fileID: 1317339501}
+  gun: {fileID: 1620553128}
+  gunPoint: {fileID: 1223819982}
+  bulletPre: {fileID: 698131094595328097, guid: 4d6a5c323f4154cd19ca83ec7a9847b8, type: 3}
+  shotCooldown: 1
+  health: 2
 --- !u!212 &1317339500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1299,12 +1303,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc2998eaeb6844cebb5d52de1487a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  moveSpeed: 3
+  tankBody: {fileID: 1351229564}
+  gun: {fileID: 397611273}
+  gunPoint: {fileID: 213191239}
+  bulletPre: {fileID: 698131094595328097, guid: 4d6a5c323f4154cd19ca83ec7a9847b8, type: 3}
+  shotCooldown: 2
+  health: 3
   _player: {fileID: 1317339501}
-  _bulletPre: {fileID: 698131094595328097, guid: 4d6a5c323f4154cd19ca83ec7a9847b8, type: 3}
-  _gunPoint: {fileID: 213191239}
-  _gun: {fileID: 397611273}
-  _shotCooldown: 3
 --- !u!61 &1351229566
 BoxCollider2D:
   m_ObjectHideFlags: 0
