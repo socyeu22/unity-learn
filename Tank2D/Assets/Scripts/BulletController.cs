@@ -1,3 +1,4 @@
+using Core.Pool;
 using UnityEngine;
 
 public class BulletController : MoveController
@@ -24,13 +25,17 @@ public class BulletController : MoveController
     private void OnTriggerEnter2D(Collider2D other) {
 
         EnemyController enemy = other.GetComponent<EnemyController>();
-        enemy?.TakeDamage(_damage);
+        {
+            enemy?.TakeDamage(_damage);
+            GameManager.Instance.AddScore();
+            EventDispatcher.Instance.PostEvent(EventID.AttackEnemy);
+        }
 
         PlayerController player = other.GetComponent<PlayerController>();
         player?.TakeDamage(_damage);
 
-        Destroy(gameObject);
-        Instantiate(_smokePre, transform.position, Quaternion.identity);
+        SmartPool.Instance.Despawn(gameObject);
+        SmartPool.Instance.Spawn(_smokePre, transform.position, Quaternion.identity);
 
     }
 }

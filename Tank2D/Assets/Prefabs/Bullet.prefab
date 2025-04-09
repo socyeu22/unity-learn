@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  _timeLife: 10000
+  _timeLife: 2
   _damage: 1
   _smokePre: {fileID: 9031412823137514503, guid: 1ee99a03cb8b74515aa024997d93f380, type: 3}
 --- !u!61 &3699971983297202930

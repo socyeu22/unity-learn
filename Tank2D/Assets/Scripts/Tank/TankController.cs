@@ -1,3 +1,4 @@
+using Core.Pool;
 using UnityEngine;
 
 public class TankController : MoveController
@@ -13,7 +14,7 @@ public class TankController : MoveController
 
     protected virtual void Shoot()
     {
-        Instantiate(bulletPre, gunPoint.transform.position, gunPoint.transform.rotation);
+        SmartPool.Instance.Spawn(bulletPre, gunPoint.transform.position, gunPoint.transform.rotation, new Vector3(3, 3, 3));
     }
 
     protected virtual void GunRotate(Vector3 gunDirection)
