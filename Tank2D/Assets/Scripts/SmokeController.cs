@@ -1,9 +1,10 @@
+using Core.Pool;
 using UnityEngine;
 
 public class SmokeController : MonoBehaviour
 {
     public void DestroySmoke()
     {
-        Destroy(gameObject);
+        SmartPool.Instance.Despawn(gameObject);
     }
 }
