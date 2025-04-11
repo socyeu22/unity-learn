@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlayerController : TankController
 {
+    public static PlayerController Instance { get; private set; }
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
     private void Update()
     {
         Vector3 direction = InputHandle();
@@ -30,6 +36,12 @@ public class PlayerController : TankController
         {
             base.Shoot();
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        EventDispatcher.Instance.PostEvent(EventID.PlayerTakeDamage, currentHealth);
     }
 
 }

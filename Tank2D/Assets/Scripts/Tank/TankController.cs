@@ -8,7 +8,8 @@ public class TankController : MoveController
     [SerializeField] protected Transform gunPoint;
     [SerializeField] protected GameObject bulletPre;
     [SerializeField] protected float shotCooldown;
-    [SerializeField] protected int health;
+    [SerializeField] protected int currentHealth;
+    [SerializeField] public int maxHealth;
 
 
 
@@ -29,8 +30,13 @@ public class TankController : MoveController
     }
     public virtual void TakeDamage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
-            Destroy(gameObject);
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+            OnDead();
+    }
+
+    protected virtual void OnDead()
+    {
+        
     }
 }

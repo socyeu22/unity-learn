@@ -33,5 +33,6 @@ public enum EventID
     PlayerUpLevel,
     AddHP,
     AttackEnemy,
+    PlayerTakeDamage,
     
 }
